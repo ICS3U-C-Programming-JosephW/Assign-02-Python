@@ -4,7 +4,7 @@
 """
 This program allows the user to calculate the volume,
 surface area, lateral surface area, and base area of
-an enneagonal prism by asking them for the base length 
+an enneagonal prism by asking them for the base length
 (edge) and height.
 """
 
@@ -59,7 +59,7 @@ you like to round the answer to?{constants.WHITE}\n""",
         "int",
     )
 
-    # Calculate the desired result, including units and round.
+    # Calculate the desired result, including units and rounding.
     result = util_funcs.calculate_enneaprism(
         calc_choice, base_len, height, unit, places_to_round
     )
@@ -71,7 +71,7 @@ you like to round the answer to?{constants.WHITE}\n""",
     )
 
 
-# Checks if this is the main file being scanned.
+# Checks if this is the main file.
 if __name__ == "__main__":
     # Runs the main function.
     main()

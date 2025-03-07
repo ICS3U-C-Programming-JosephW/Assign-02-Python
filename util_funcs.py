@@ -54,6 +54,7 @@ Choices are: mm, cm, in, or ft.{constants.WHITE}\n"""
                 raise ValueError(
                     f"\n{constants.LIGHT_RED}Please pick mm, cm, in, or ft.{constants.WHITE}\n"
                 )
+            # Otherwise, checks if the user did input a valid unit choice.
             else:
                 # Print out a green string indicating that the user chose correctly.
                 print(f"\n{constants.LIGHT_CYAN}Done!{constants.WHITE}")
@@ -65,24 +66,34 @@ Choices are: mm, cm, in, or ft.{constants.WHITE}\n"""
 
 
 def check_positive_num(display_message, num_type, str_type):
+    # Construct an infinite loop.
     while True:
+        # Try to create a dynamic input system.
         try:
+            """Gets input from a user and converts it to a number type with
+            a custom display message.
+            """
             any_num = num_type(input(display_message))
-
+            # Checks if number is less than or equal to 0 and is a float.
             if any_num <= 0 and str_type == "float":
+                # Raise a red ValueError indicating the user did not pick a whole number.
                 raise ValueError(
                     f"""\n{constants.LIGHT_RED}Please pick a positive 
 and non-zero value.{constants.WHITE}"""
                 )
+            # Checks if the number is less than 0 and is an integer.
             elif any_num < 0 and str_type == "int":
+                # Raise a red ValueError indicating the user did not pick a positive value.
                 raise ValueError(
                     f"\n{constants.LIGHT_RED}Please pick a positive value.{constants.WHITE}"
                 )
+            # Checks if the user does not do any of the above things.
             else:
+                # Displays a green text to proceed.
                 print(f"\n{constants.LIGHT_GREEN}Accepted.{constants.WHITE}")
-                # Return the unit in lowercase.
+                # Return the number.
                 return any_num
-
+        # Get the raised ValueError message and print it as an exception.
         except ValueError as error_msg:
             print(error_msg)
 
