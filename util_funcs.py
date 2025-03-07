@@ -3,14 +3,30 @@
 # Date: Mar. 6, 2025
 # This module contains utility functions (helper functions).
 
-def validate_property_choice(input_text):
-    # An array of accepted options to choose.
-    accepted_array = ["Volume", "Surface Area", "Lateral Surface Area", "Base Area"]
+# Import the constants module.
+import constants
 
-    # Checks if the titled version of the string is in the accepted array.
-    if str.title(input_text) in accepted_array:
-        print("good")
+def init_choice_input():
+    # Construct an infinite loop.
+    while True:
+            # Try to get a correct input from the user.
+            try:
+                # Get what the user wants to calculate for the enneagonal prism.
+                target_calculation = input("What do you want to calculate out of the mentioned properties?\n")
+                
+                # Checks if the user did not input a valid choice.
+                if str.title(target_calculation) not in constants.ACCEPTED_CHOICES:
+                
+                    # Trigger a value error stating the user did not pick a valid choice.
+                    raise ValueError("Please pick a valid choice.")
+                else:
+                    # Print out a string indicating that the user chose correctly.
+                    print(f"Alright! Remember, you chose {str.title(target_calculation)}.")
+                    
+                    # Return the value to use it in future calculations.
+                    return target_calculation
+            except ValueError as error_msg:
+                 print(error_msg)
 
-    # Prompt user to pick something else if this is not true.
-    else:
-        print("Please pick a valid choice.")
+def interpolate_colours():
+     pass
