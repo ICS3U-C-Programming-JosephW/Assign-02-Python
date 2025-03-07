@@ -19,10 +19,10 @@ def init_choice_input():
             # Checks if the user did not input a valid choice using titled format.
             if str.title(target_calculation) not in constants.ACCEPTED_CHOICES:
                 # Raise a red ValueError stating the user did not pick a valid choice.
-                raise ValueError(f"{constants.RED}Please pick a valid choice.")
+                raise ValueError(f"{constants.RED}Please pick a valid choice.{constants.WHITE}")
             else:
                 # Print out a green string indicating that the user chose correctly.
-                print(f"{constants.GREEN}Alright!")
+                print(f"{constants.GREEN}Alright!{constants.WHITE}")
 
                 # Return the value to use it in future calculations.
                 return str.title(target_calculation)
@@ -30,7 +30,19 @@ def init_choice_input():
         except ValueError as error_msg:
             print(error_msg)
 
+def generate_given_prompts(input_text):
+    prompt1 = "Enter the base edge length."
+    prompt2 = "Enter the height."
+
+    match input_text:
+        case "Volume" | "Surface Area" | "Lateral Surface Area":
+            input(prompt1)
+            input(prompt2)
+        case "Base Area":
+            input(prompt1)
+
 def calculate_enneaprism(input_text, base_len, height, round_num):
+    
     match input_text:
         case "Volume":
             return (9/4 * base_len^2 * 1/math.tan(math.radians(20)) * height)
