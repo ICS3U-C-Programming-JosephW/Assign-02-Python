@@ -4,7 +4,11 @@
 # This module contains constants.
 
 ACCEPTED_CHOICES = ["Volume", "Surface Area", "Lateral Surface Area", "Base Area"]
+ACCEPTED_UNITS = ["km", "u"]
 
-RED = '\033[91m'
-GREEN = '\033[92m'
+LIGHT_CYAN = "\033[1;36m"
+LIGHT_PURPLE = "\033[1;35m"
+RED = "\033[91m"
+GREEN = "\033[92m"
 WHITE = "\033[0m"
+BOLD = "\x1b[1;31m"

@@ -4,11 +4,11 @@
 """
 This program allows the user to calculate the volume,
 surface area, lateral surface area, and base area of
-an enneagonal prism by asking them for the base edge and
-height, or just the base edge.
+an enneagonal prism by asking them for the base edge length
+and height.
 """
 
-# Import the utility functions and constants modules into this file.
+# Import the constants and utility functions modules into this file.
 import constants
 import util_funcs
 
@@ -17,33 +17,40 @@ import util_funcs
 def main():
     # Greet the user.
     print(
-        """Hello user! This is a program designed to 
+        '''Hello user! This is a program designed to 
 calculate the volume, surface area, lateral surface area, 
-and base area of an enneagonal prism!\n"""
+and base area of an enneagonal prism!\n'''
     )
 
-    # Use util function to get the user's choice for calculation.
+    # Get and check the user's choice for calculation using a utility function.
     calc_choice = util_funcs.init_choice_input()
-    
-    # Create a base edge prompt.
-    base_edge_prompt = "Enter the base edge length."
-    # Create a height prompt.
-    height_prompt = "Enter the height."
 
-    # Match the calculation choices.
+    # Get and check the user's choice for units using a utility function.
+    unit = util_funcs.check_unit_options()
+
+    # Get the base edge length from the user.
+    base_len = float(input("Enter the base edge length."))
+
+    # Match the calculation choices for getting height.
     match calc_choice:
-        # Ask for base edge length and height for volume, ...
+        # Ask for height only with volume, surface area, and lateral surface area, not base area.
         case "Volume" | "Surface Area" | "Lateral Surface Area":
-            input(base_edge_prompt)
-            input(height_prompt)
-        case "Base Area":
-            input(base_edge_prompt)
-    
+            # Get height from user.
+            height = float(input("Enter the height."))
 
+    # Get the amount of decimal places the user wants to round to.
+    places_to_round = int(
+        input("How many decimal places would you like to round the answer to?")
+    )
 
-    
-    # Filler text.
-    print("...")
+    # Calculate the desired result, including units and round.
+    result = util_funcs.calculate_enneaprism(
+        calc_choice, base_len, height, unit, places_to_round
+    )
+
+    # Display the result to the user.
+    print(f"The {calc_choice} of your enneagonal prism is: {result}")
+
 
 # Checks if this is the main file being scanned.
 if __name__ == "__main__":
