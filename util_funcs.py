@@ -7,7 +7,7 @@
 import constants
 import math
 
-
+# Define a function to manage user choice input.
 def init_choice_input():
     # Construct an infinite loop.
     while True:
@@ -56,7 +56,7 @@ Choices are: mm, cm, in, or ft.{constants.WHITE}\n"""
                 )
             # Otherwise, checks if the user did input a valid unit choice.
             else:
-                # Print out a green string indicating that the user chose correctly.
+                # Display a proceeding message indicating that the user chose correctly.
                 print(f"\n{constants.LIGHT_CYAN}Done!{constants.WHITE}")
                 # Return the unit in lowercase.
                 return str.lower(unit)
@@ -64,7 +64,7 @@ Choices are: mm, cm, in, or ft.{constants.WHITE}\n"""
         except ValueError as error_msg:
             print(error_msg)
 
-
+# Define a function for managing valid number input from the user.
 def check_positive_num(display_message, num_type, str_type):
     # Construct an infinite loop.
     while True:
@@ -97,7 +97,7 @@ and non-zero value.{constants.WHITE}"""
         except ValueError as error_msg:
             print(error_msg)
 
-
+# Define a function to calculate the user's desired result for an enneagonal prism.
 def calculate_enneaprism(choice, base_len, height, unit, round_num):
     # Match the choice with the following cases.
     match choice:
