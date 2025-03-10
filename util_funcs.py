@@ -7,6 +7,7 @@
 import constants
 import math
 
+
 # Define a function to manage user choice input.
 def init_choice_input():
     # Construct an infinite loop.
@@ -64,6 +65,7 @@ Choices are: mm, cm, in, or ft.{constants.WHITE}\n"""
         except ValueError as error_msg:
             print(error_msg)
 
+
 # Define a function for managing valid number input from the user.
 def check_positive_num(display_message, num_type, str_type):
     # Construct an infinite loop.
@@ -96,6 +98,7 @@ and non-zero value.{constants.WHITE}"""
         # Get the raised ValueError message and print it as an exception.
         except ValueError as error_msg:
             print(error_msg)
+
 
 # Define a function to calculate the user's desired result for an enneagonal prism.
 def calculate_enneaprism(choice, base_len, height, unit, round_num):
